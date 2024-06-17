@@ -1,33 +1,31 @@
-# Jogo Memória
+# Jogo da Memória
 
-Welcome to the Jogo Memória project! This is a memory game built with HTML, CSS, and JavaScript.
+Bem-vindo ao Jogo da Memória! Um pequeno projeto de jogo desenvolvido em HTML, CSS e JavaScript.
 
-## Table of Contents
+## Índice
 
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Usage](#usage)
-<!-- - [How to Play](#how-to-play)
+- [Introdução](#introdução)
+- [Como Iniciar o Jogo](#como-iniciar-o-jogo)
+<!-- - [Como Jogar](#como-jogar)
  -->
-<!-- - [License](#license) -->
+<!-- - [Licença](#licença) -->
 
-## Introduction
+## Introdução
 
-Jogo Memória is a classic memory matching game where players need to match pairs of cards. It is designed to be fun and educational, helping to improve memory and concentration.
+Jogo Memória é um clássico jogo de memória onde os jogadores precisam combinar pares de cartas. Ele é projetado para ser divertido e educativo, ajudando a melhorar a memória e a concentração.
 
-## Installation
+## Como Iniciar o Jogo
 
-To run the game locally in your machine, you can clone the repository and open the `index.html` file in your web browser.
+Para executar o jogo localmente em sua máquina, você pode clonar o repositório e abrir o arquivo `index.html` no seu navegador.
 
 ```bash
 git clone https://github.com/MikaelOliveiraDev/jogo-memoria.git
 ```
+
 ```bash
-cd jogo-memoria
+cd jogo-da-memoria
 ```
 
-## Usage
+Você tambem pode jogar diretamente no seeu navegador com HTML Preview! Basta clicar no link abaixo:
 
-You can also run the game directly in your browser with HTML Preview! Just click on the link below.
-
-[Open with HTML Preview](http://htmlpreview.github.io/?https://github.com/MikaelOliveiraDev/jogo-memoria/blob/main/index.html)
+[Abrir com HTML Preview](http://htmlpreview.github.io/?https://github.com/MikaelOliveiraDev/jogo-memoria/blob/main/index.html)
