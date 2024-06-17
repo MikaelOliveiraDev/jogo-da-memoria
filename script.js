@@ -88,5 +88,9 @@ function clickCard(ev) {
     }
 }
 
+function restartGame(ev) {
+    document.querySelector("#game-board").innerHTML = ""
+    initGame()
+}
 
 initGame()
