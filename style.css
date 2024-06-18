@@ -11,9 +11,13 @@ main h1 {
     text-align: center;
 }
 section {
+    text-align: right;
+}
+section {
     margin-right:30px;
 }
-section #score {
+section #score, 
+section #combo {
     font-size: 3em;
 }
 section button {
@@ -38,11 +42,11 @@ section button {
     margin: 10px;
     perspective: 300px;
 }
-.card.flip .card-content {
-     animation: flip .5s forwards;
+.card.flip-to-back .card-content {
+     animation: flip-to-back .5s forwards;
 }
-.card.flip-back .card-content {
-    animation: flip-back .5s forwards;
+.card.flip-to-front .card-content {
+    animation: flip-to-front .5s forwards;
 }
 .card.highlight .card-content {
     background-color: var(--highlighted-color)
@@ -66,11 +70,11 @@ section button {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotateY(180deg);
+    transform: translate(-50%, -50%);
     backface-visibility: hidden;
 }
 
-@keyframes flip {
+@keyframes flip-to-back {
     0% {
         transform: rotateY(0deg);
     }
@@ -78,7 +82,7 @@ section button {
         transform: rotateY(180deg);
     }
 }
-@keyframes flip-back {
+@keyframes flip-to-front {
     0% {transform: rotateY(180deg);}
     100% {transform: rotateY(0deg);}
 }
