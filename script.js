@@ -44,20 +44,20 @@ function shuffleArray(array) {
     return array
 }
 function createCard(emoji) {
+    let cardWrapper = document.createElement("div")
     let card = document.createElement("div")
-    let cardContent = document.createElement("div")
     let front = document.createElement("div")
-    card.appendChild(cardContent)
-    cardContent.appendChild(front)
+    cardWrapper.appendChild(card)
+    card.appendChild(front)
+    cardWrapper.classList.add("card-wrapper")
     card.classList.add("card")
-    cardContent.classList.add("card-content")
     front.classList.add("front")
 
     front.innerText = emoji
 
     card.addEventListener("click", clickCard)
 
-    return card
+    return cardWrapper
 }
 
 function flipBack(card) {
@@ -91,7 +91,7 @@ function clickCard(ev) {
 
     let score = document.querySelector("#score")
     let combo = document.querySelector("#combo")
-    console.log(card.innerText)
+    
     // If matched
     if(card.innerText == GAME.previousCard.innerText) {
         card.classList.add("highlight")
