@@ -1,15 +1,20 @@
 const EMOJIS = ["🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🍒","🍑","🍍","🥭","🥥"];
 const NUMBER_USED_0F_EMOJIS = 10
-
-if (NUMBER_USED_0F_EMOJIS > EMOJIS.length) {
-    throw Error("NUMBER_USED_0F_EMOJIS must be less than EMOJI.length")
-}
-
 const GAME = {
     previousCard: null,
     combo: 0,
     score: 0,
 }
+
+if (NUMBER_USED_0F_EMOJIS > EMOJIS.length) {
+    throw Error("NUMBER_USED_0F_EMOJIS must be less than EMOJI.length")
+}
+
+
+putEmojisOnList()
+initGame()
+
+
 
 function initGame() {
     let cards = []
@@ -133,4 +138,14 @@ function restartGame(ev) {
     initGame()
 }
 
-initGame()
+function putEmojisOnList() {
+    let list = document.querySelector("section .levels")
+    let htmlContent = ""
+
+    for (let emoji of EMOJIS) {
+        console.log(emoji)
+        htmlContent += `<li class="level">${emoji}</li>`
+    }
+    
+    list.innerHTML = htmlContent
+}
