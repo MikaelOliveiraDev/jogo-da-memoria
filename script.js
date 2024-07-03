@@ -11,7 +11,7 @@ if (NUMBER_USED_0F_EMOJIS > EMOJIS.length) {
 }
 
 
-putEmojisOnList()
+putLevelsOnList()
 initGame()
 
 
@@ -137,12 +137,12 @@ function restartGame(ev) {
     initGame()
 }
 
-function putEmojisOnList() {
+function putLevelsOnList() {
     let list = document.querySelector("section .levels")
     let htmlContent = ""
 
     for (let emoji of EMOJIS) {
-        htmlContent += `<li class="level">${emoji}</li>`
+        htmlContent += `<li class="level locked">${emoji}</li>`
     }
     
     list.innerHTML = htmlContent
