@@ -1,4 +1,4 @@
-const EMOJIS = ["🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🍒","🍑","🍍","🥭","🥥"];
+const EMOJIS = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🫐", "🍒", "🍑", "🥭", "🍍", "🥥", "🥝", "🍆", "🥑", "🥒", "🌶️", "🫑", "🌽", "🥕", "🫒"];
 const NUMBER_USED_0F_EMOJIS = 10
 const GAME = {
     previousCard: null,
@@ -130,7 +130,6 @@ function startAnimation() {
             card.classList.add("flip-to-back")
         }, 500)
     }
-    console.log(cards)
 }
 
 function restartGame(ev) {
@@ -143,7 +142,6 @@ function putEmojisOnList() {
     let htmlContent = ""
 
     for (let emoji of EMOJIS) {
-        console.log(emoji)
         htmlContent += `<li class="level">${emoji}</li>`
     }
     
