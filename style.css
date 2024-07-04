@@ -73,11 +73,21 @@ section ul.levels li.level:hover {
     width: 500px;
     border: 1.5px solid gray;
     border-radius: 1px;
+}
+#cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
+#cards:hover {
+    animation: restart-board 1s 2 alternate;
+}
+@keyframes restart-board {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 .card-wrapper {
     margin: 8px;
     perspective: 300px;

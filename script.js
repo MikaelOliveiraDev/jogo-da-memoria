@@ -32,7 +32,7 @@ function initGame() {
 
     shuffleArray(cards)
     
-    cards.forEach(card => document.querySelector("#game-board").appendChild(card))
+    cards.forEach(card => document.querySelector("#cards").appendChild(card))
 
     startAnimation()
 }
@@ -122,7 +122,7 @@ function clickCard(ev) {
 }
 
 function startAnimation() {
-    let cards = document.querySelectorAll("#game-board .card")
+    let cards = document.querySelectorAll("#cards .card")
     
     for (let card of cards) {
 
@@ -133,7 +133,7 @@ function startAnimation() {
 }
 
 function restartGame(ev) {
-    document.querySelector("#game-board").innerHTML = ""
+    document.querySelector("#cards").innerHTML = ""
     initGame()
 }
 
