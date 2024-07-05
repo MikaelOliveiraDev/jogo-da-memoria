@@ -11,12 +11,26 @@ if (NUMBER_USED_0F_EMOJIS > EMOJIS.length) {
 }
 
 
+startGame()
 putLevelsOnList()
-initGame()
+flipAll("back")
 
 
 
-function initGame() {
+function shuffleArray(array) {
+    for(let index0 = array.length - 1; index0 > 0; index0--) {
+        let index1 = Math.floor(Math.random() * (index0 + 1))
+        item0 = array[index0]
+        item1 = array[index1]
+        array[index0] = item1
+        array[index1] = item0
+        //[array[i], array[j]] = [array[j], array[i]]
+    }
+
+    return array
+}
+
+function startGame() {
     let cards = []
 
     EMOJIS.forEach((emoji, index) => {
@@ -34,20 +48,12 @@ function initGame() {
     
     cards.forEach(card => document.querySelector("#cards").appendChild(card))
 
-    startAnimation()
 }
-function shuffleArray(array) {
-    for(let index0 = array.length - 1; index0 > 0; index0--) {
-        let index1 = Math.floor(Math.random() * (index0 + 1))
-        item0 = array[index0]
-        item1 = array[index1]
-        array[index0] = item1
-        array[index1] = item0
-        //[array[i], array[j]] = [array[j], array[i]]
-    }
+function restartGame(ev) {
+    document.querySelector("#cards").innerHTML = ""
+    startGame()
+}
 
-    return array
-}
 function createCard(emoji) {
     let cardWrapper = document.createElement("div")
     let card = document.createElement("div")
@@ -121,22 +127,17 @@ function clickCard(ev) {
     combo.innerText = GAME.combo
 }
 
-function startAnimation() {
+function flipAll(position, delay) {
+    delay = delay == undefined ? 500 : delay
     let cards = document.querySelectorAll("#cards .card")
     
     for (let card of cards) {
 
         setTimeout(function() {
-            card.classList.add("flip-to-back")
-        }, 500)
+            card.classList.add("flip-to-"+position)
+        }, delay)
     }
 }
-
-function restartGame(ev) {
-    document.querySelector("#cards").innerHTML = ""
-    initGame()
-}
-
 function putLevelsOnList() {
     let list = document.querySelector("section .levels")
     let htmlContent = ""

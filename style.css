@@ -50,7 +50,7 @@ section ul.levels li.level.locked {
     filter: grayscale(100%) brightness(70%);
 }
 
-section ul.levels li.level:hover {
+section ul.levels li.level.unlock {
     animation: unlock 1s forwards;
     z-index: 2;
 }
@@ -80,10 +80,10 @@ section ul.levels li.level:hover {
     justify-content: center;
     align-items: center;
 }
-#cards:hover {
+#cards.fade {
     animation: restart-board 1s 2 alternate;
 }
-@keyframes restart-board {
+@keyframes fade {
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
@@ -105,6 +105,7 @@ section ul.levels li.level:hover {
     transform-style: preserve-3d;
     transition-duration: .4s;
 }
+
 .card.flip-to-back {
      animation: flip-to-back .5s forwards;
 }
