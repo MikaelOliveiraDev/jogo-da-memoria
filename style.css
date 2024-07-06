@@ -80,9 +80,6 @@ section ul.levels li.level.unlock {
     justify-content: center;
     align-items: center;
 }
-#cards.fade {
-    animation: restart-board 1s 2 alternate;
-}
 @keyframes fade {
     0% { opacity: 1; }
     100% { opacity: 0; }
@@ -106,12 +103,6 @@ section ul.levels li.level.unlock {
     transition-duration: .4s;
 }
 
-.card.flip-to-back {
-     animation: flip-to-back .5s forwards;
-}
-.card.flip-to-front {
-    animation: flip-to-front .5s forwards;
-}
 .card:hover {
     transform: scale(1.4);
 }

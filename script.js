@@ -2,7 +2,6 @@ const EMOJIS = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", 
 const NUMBER_USED_0F_EMOJIS = 10
 const GAME = {
     previousCard: null,
-    combo: 0,
     score: 0,
 }
 
@@ -71,13 +70,11 @@ function createCard(emoji) {
     return cardWrapper
 }
 
-function flipBack(card) {
-    card.classList.remove("flip-to-front")
-    card.classList.add("flip-to-back")
-}
-function flipFront(card) {
-    card.classList.remove("flip-to-backck")
-    card.classList.add("flip-to-front")
+function flipCard(card, direction, callback) {
+    const seconds = .5
+    card.style.animation = `flip-to-${direction} ${seconds}s forwards`
+
+    setTimeout(callback, seconds)
 }
 
 function clickCard(ev) {
@@ -89,11 +86,11 @@ function clickCard(ev) {
     // Manually flipback
     if(card == GAME.previousCard) {
         GAME.previousCard = null
-        flipBack(card)
+        flipCard(card, "back")
         return 
     }
     
-    flipFront(card)
+    flipCard(card, "front")
 
     // If this is the first click one
     if(!GAME.previousCard) {
@@ -101,7 +98,6 @@ function clickCard(ev) {
     }
 
     let score = document.querySelector("#score")
-    let combo = document.querySelector("#combo")
     
     // If matched
     if(card.innerText == GAME.previousCard.innerText) {
@@ -110,33 +106,30 @@ function clickCard(ev) {
         
         GAME.previousCard = null
 
-        GAME.combo += 1
-        GAME.score += 2 * GAME.combo
+        GAME.score += 1
 
     }else {
-        GAME.combo = 0
         
         setTimeout(() => {
-            flipBack(card)
-            flipBack(GAME.previousCard)
+            flipCard(card, "back")
+            flipCard(GAME.previousCard, "back")
             
             GAME.previousCard = null
         }, 500)
     }
     score.innerText = GAME.score 
-    combo.innerText = GAME.combo
 }
 
-function flipAll(position, delay) {
+function flipAll(direction, delay) {
     delay = delay == undefined ? 500 : delay
-    let cards = document.querySelectorAll("#cards .card")
-    
-    for (let card of cards) {
 
-        setTimeout(function() {
-            card.classList.add("flip-to-"+position)
-        }, delay)
-    }
+    setTimeout(() => {
+        let cards = document.querySelectorAll("#cards .card")
+        for (let card of cards) {
+            flipCard(card, direction, delay)
+        }
+
+    }, delay)
 }
 function putLevelsOnList() {
     let list = document.querySelector("section .levels")
