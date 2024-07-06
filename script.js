@@ -1,18 +1,15 @@
 const EMOJIS = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🫐", "🍒", "🍑", "🥭", "🍍", "🥥", "🥝", "🍆", "🥑", "🥒", "🌶️", "🫑", "🌽", "🥕", "🫒"];
-const NUMBER_USED_0F_EMOJIS = 10
 const GAME = {
     previousCard: null,
     score: 0,
-}
-
-if (NUMBER_USED_0F_EMOJIS > EMOJIS.length) {
-    throw Error("NUMBER_USED_0F_EMOJIS must be less than EMOJI.length")
+    level: 1,
 }
 
 
 startGame()
 putLevelsOnList()
 flipAll("back")
+unlockLevel()
 
 
 
@@ -33,7 +30,7 @@ function startGame() {
     let cards = []
 
     EMOJIS.forEach((emoji, index) => {
-        if(index > NUMBER_USED_0F_EMOJIS) return
+        if(index >= GAME.level) return
 
         // Create a pair of cards
         for(let i = 0; i < 2; i++) {
@@ -51,6 +48,16 @@ function startGame() {
 function restartGame(ev) {
     document.querySelector("#cards").innerHTML = ""
     startGame()
+}
+function nextLevel() {
+    GAME.level++
+    GAME.score = 0
+
+    let cards = document.querySelector("#cards")
+    cards.style.animation = "fade 1s 2 alternate"
+    unlockLevel()
+    setTimeout(restartGame, 1000)
+    setTimeout(() => flipAll("back"), 2000)
 }
 
 function createCard(emoji) {
@@ -103,11 +110,13 @@ function clickCard(ev) {
     if(card.innerText == GAME.previousCard.innerText) {
         card.classList.add("highlight")
         GAME.previousCard.classList.add("highlight")
-        
         GAME.previousCard = null
 
         GAME.score += 1
-
+        if (GAME.score === GAME.level)
+            nextLevel()
+        else if(GAME.score > GAME.level) 
+            console.error("Game score cannot be greater than level.")
     }else {
         
         setTimeout(() => {
@@ -121,7 +130,7 @@ function clickCard(ev) {
 }
 
 function flipAll(direction, delay) {
-    delay = delay == undefined ? 500 : delay
+    delay = delay == undefined ? 500 : delay * 1000
 
     setTimeout(() => {
         let cards = document.querySelectorAll("#cards .card")
@@ -131,6 +140,7 @@ function flipAll(direction, delay) {
 
     }, delay)
 }
+
 function putLevelsOnList() {
     let list = document.querySelector("section .levels")
     let htmlContent = ""
@@ -140,4 +150,9 @@ function putLevelsOnList() {
     }
     
     list.innerHTML = htmlContent
+}
+function unlockLevel() {
+    let index = GAME.level - 1
+    let level = document.querySelectorAll(".levels .level")[index]
+    level.style.animation = `unlock 2s forwards`
 }
