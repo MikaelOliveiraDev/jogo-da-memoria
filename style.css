@@ -10,15 +10,17 @@ main h1 {
     font-size: 50px;
     text-align: center;
 }
+
+/* SECTION */
 section {
     text-align: right;
     margin-right:30px;
 }
-section #score, 
-section #combo {
+span#score, 
+span#combo {
     font-size: 3em;
 }
-section button {
+button#restart  {
     padding: 10px;
     text-transform: uppercase;
     background-color: var(--color);
@@ -27,15 +29,14 @@ section button {
     border-right: 5px solid hsla(0, 0%, 48%, 0.2);
     border-bottom: 5px solid hsla(0, 0%, 48%, 0.2);
 }
-section ul.levels {
-    float: right;
+ ul.levels {
     min-width: 200px;
     max-width: 380px;
     text-align: left;
     border: 1px solid grey;
     padding: 0;
 }
-section ul.levels li.level {
+ ul.levels li.level {
     background-color: var(--color);
     font-size: 30px;
     text-align: center;
@@ -46,11 +47,10 @@ section ul.levels li.level {
     border: 2px solid var(--color);
     z-index: 1;
 }
-section ul.levels li.level.locked {
+ ul.levels li.level.locked {
     filter: grayscale(100%) brightness(70%);
     opacity: .5;
 }
-
 @keyframes unlock {
     0% {
         transform: scale(1);
@@ -69,6 +69,8 @@ section ul.levels li.level.locked {
     }
 }
 
+
+/* BOAD and CARDS */
 #game-board {
     width: 500px;
     border: 1.5px solid gray;
