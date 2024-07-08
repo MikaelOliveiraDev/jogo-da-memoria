@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo da Memória</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Jogo da Memória</h1>
     <main>
-    <section>
-        <h1>Jogo da Memória</h1>
+      <div id="game-board">
+        <div id="cards"></div>
+      </div>
+      <section>
         <div>
-            <span id="score">0</span>
-            <span>pontos</span>
+          <span id="score">0</span>
+          <span>pontos</span>
+          <br />
+          <button id="restart" onclick="restartGame()" type="button">
+            reiniciar
+          </button>
         </div>
-        <button id="restart" onclick="restartGame()" type="button">reiniciar</button>
 
         <ul class="levels">
-            <!--These li are going to be replaced-->
-            <li class="level">1</li>
-            <li class="level">2</li>
-            <li class="level">3</li>
-            <li class="level">4</li>
-            <li class="level">5</li>
+          <!--These li are going to be replaced-->
+          <li class="level">1</li>
+          <li class="level">2</li>
+          <li class="level">3</li>
+          <li class="level">4</li>
+          <li class="level">5</li>
         </ul>
-    </section>
-    
-        <div id="game-board">
-            <div id="cards"></div>
-        </div>
+      </section>
     </main>
 
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
