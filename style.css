@@ -60,7 +60,6 @@ ul.levels li.level.locked {
     filter: grayscale(100%) brightness(70%);
     opacity: .5;
 }
-
 /* For mobile */
 @media only screen and (max-width: 600px) {
     ul.levels {
@@ -95,6 +94,7 @@ ul.levels li.level.locked {
 }
 /* BOAD and CARDS */
 #game-board {
+    width: 500px;
     border: 1.5px solid gray;
     border-radius: 1px;
     grid-area: right;
@@ -129,7 +129,7 @@ ul.levels li.level.locked {
 }
 
 .card:hover {
-    transform: scale(1.4);
+    scale: 1.2;
 }
 .front {
     font-size: 50px;
