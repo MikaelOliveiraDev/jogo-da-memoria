@@ -5,6 +5,7 @@ const GAME = {
     level: 1,
 }
 
+GAME.level = Number(localStorage.getItem("game-level")) || 1
 
 startGame()
 putLevelsOnList()
@@ -52,6 +53,9 @@ function restartGame(ev) {
 function nextLevel() {
     GAME.level++
     GAME.score = 0
+
+    // Save the current level
+    localStorage.setItem("game-level", GAME.level)
 
     let cards = document.querySelector("#cards")
     cards.style.animation = "fade 1s 2 alternate"
@@ -152,7 +156,8 @@ function putLevelsOnList() {
     list.innerHTML = htmlContent
 }
 function unlockLevel() {
-    let index = GAME.level - 1
-    let level = document.querySelectorAll(".levels .level")[index]
-    level.style.animation = `unlock 2s forwards`
+    for (let index = 0; index < GAME.level; index++) {
+        let level = document.querySelectorAll(".levels .level")[index]
+        level.style.animation = `unlock 2s forwards`
+    }
 }

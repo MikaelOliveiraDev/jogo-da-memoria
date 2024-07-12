@@ -8,6 +8,7 @@ h1 {
 }
 
 main {
+    min-width: 600px;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: "left right";
@@ -94,7 +95,7 @@ ul.levels li.level.locked {
 }
 /* BOAD and CARDS */
 #game-board {
-    width: 500px;
+    max-width: 500px;
     border: 1.5px solid gray;
     border-radius: 1px;
     grid-area: right;
@@ -104,6 +105,7 @@ ul.levels li.level.locked {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 @keyframes fade {
     0% { opacity: 1; }
