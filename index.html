@@ -7,32 +7,46 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Jogo da Memória</h1>
-    <main>
-      <div id="game-board">
-        <div id="cards"></div>
-      </div>
-      <section>
-        <div>
-          <span id="score">0</span>
-          <span>pontos</span>
-          <br />
-          <button id="restart" onclick="restartGame()" type="button">
-            reiniciar
-          </button>
+    <div class="page-container">
+
+      <h1>Jogo da Memória</h1>
+      <main>
+        <div id="game-board">
+          <div id="cards"></div>
         </div>
+        <section>
+          <div>
+            <span id="score">0</span>
+            <span>pontos</span>
+            <br />
+            <button id="restart" onclick="restartGame()" type="button">
+              reiniciar
+            </button>
+          </div>
+          <ul class="levels">
+            <!--These li are going to be replaced-->
+            <li class="level">1</li>
+            <li class="level">2</li>
+            <li class="level">3</li>
+            <li class="level">4</li>
+            <li class="level">5</li>
+          </ul>
+        </section>
+      </main>
+    </div>
 
-        <ul class="levels">
-          <!--These li are going to be replaced-->
-          <li class="level">1</li>
-          <li class="level">2</li>
-          <li class="level">3</li>
-          <li class="level">4</li>
-          <li class="level">5</li>
-        </ul>
-      </section>
-    </main>
-
+      <footer>
+      <p>&copy; 2024 Jogo da Memória. Todos os direitos reservados.</p>
+      <p>
+          <a href="https://github.com/MikaelOliveiraDev" target="_blank">
+              Repositório no GitHub
+          </a> | 
+          <a href="mailto:mikaeloliveiradev@gmail.com">
+            mikaeloliveiradev@gmail.com
+          </a>
+      </p>
+  </footer>
+  
     <script src="script.js"></script>
   </body>
 </html>
