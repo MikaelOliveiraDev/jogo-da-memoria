@@ -1,0 +1,5 @@
+- Fix restart action.
+- Remove borders.
+- Style title.
+- Recreate footer.
+- Create hints.
